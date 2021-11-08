@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas JS</title>
+</head>
+<body>
+<input type="button" id="miBoton" value="dame click" onclick='saludar();'>
+<br><!-- -->
+<input type="button" id="miBoton2" value="otro click">
+
+
+
+    <script>
+        function saludar(){
+            alert('hola que tal');
+        }
+//alert('es una prueba');
+function suma(numero1,numero2){
+    //metodo de tipo funcion
+    var resultado=0;
+    resultado=numero1+numero2;
+    return resultado;
+}
+//------
+function saludo(nombre){
+    //metodo de tipo procedimiento
+    console.log('hola '+nombre+' :)')
+}
+//-----
+function mayorEdad(edad){
+var esMayor=false;
+if(edad>=18){
+esMayor=true;}
+else{
+esMayor=false;
+}
+return esMayor;
+}
+//-----
+function contar(numero){
+    var contador=1;
+    while(contador<=numero){
+        console.log(contador);
+        contador=contador+1;
+
+    }
+}
+/*
+https://gyazo.com/ea8c25fd0bfcbc018f30cb3f4611d372
+*/
+
+function contar2(numero){
+var contador=1;
+for(contador=1; contador<=numero;contador++){
+    //contador++ contador=contador+1 (esto es un comentario)
+    console.log(contador);
+
+}
+}
+
+var nombre='', edad=0;
+var esMayor=true;
+nombre = prompt('¿Cómo te llamas?');
+saludo(nombre); //llamada a método
+edad=prompt('Qué edad tienes?');
+edad=parseFloat(edad);
+esMayor=mayorEdad(edad);
+if (esMayor==true){
+console.log('es un mayor');
+}else{
+    console.log('es un menor');
+}
+mayorEdad(edad);
+
+var boton=document.getElementById('miBoton2')
+boton.addEventListener('click', function(){
+    alert('clickeaste el boton 2');
+});
+    </script>
+</body>
+</html>
