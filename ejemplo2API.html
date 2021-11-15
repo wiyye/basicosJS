@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo API 2</title>
+</head>
+<body>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery.min.js"></script>
+
+<script>
+    function consumoHojaExcel(){
+        var html = '', pagina='';
+        pagina='https://docs.google.com/spreadsheets/d/e/2PACX-1vTzYZsrp-s-_JIPbIhoxtMKFEw-dMOwb54Ome36o2r40kRR7ZhtSmYXs8uVpHfVs9mTJVqsmPGks14f/pubhtml';
+        $.ajax({
+        url:pagina,
+        async:false,
+        success:function(datos){
+        var conversor = new DOMParser();
+        html = conversor.parseFromString(datos, 'text/html');
+        }
+        });
+        return html;
+
+    }
+
+    /*
+        r=consumoHojaExcel()
+#document
+cuerpoTabla=r.getElementsByTagName('tbody')
+HTMLCollection [tbody]0: tbodyaccessKey: ""align: ""ariaAtomic: nullariaAutoComplete: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColSpan: nullariaCurrent: nullariaDescription: nullariaDisabled: nullariaExpanded: nullariaHasPopup: nullariaHidden: nullariaKeyShortcuts: nullariaLabel: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {length: 0}autocapitalize: ""autofocus: falsebaseURI: "https://8000-brown-whale-6j2kcmfh.ws-eu18.gitpod.io/ejemplo2API.html"ch: ""chOff: ""childElementCount: 11childNodes: NodeList(11) [tr, tr, tr, tr, tr, tr, tr, tr, tr, tr, tr]children: HTMLCollection(11) [tr, tr, tr, tr, tr, tr, tr, tr, tr, tr, tr]classList: DOMTokenList [value: '']className: ""clientHeight: 0clientLeft: 0clientTop: 0clientWidth: 0contentEditable: "inherit"dataset: DOMStringMap {}dir: ""draggable: falseelementTiming: ""enterKeyHint: ""firstChild: trfirstElementChild: trhidden: falseid: ""innerHTML: "<tr style=\"height: 20px\"><th id=\"1557100607R0\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">1</div></th><td class=\"s0\" dir=\"ltr\">Nombre</td><td class=\"s0\" dir=\"ltr\">Edad</td><td class=\"s0\" dir=\"ltr\">PesoKg</td><td class=\"s0\" dir=\"ltr\">EstaturaMts</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R1\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">2</div></th><td class=\"s0\" dir=\"ltr\">Julia</td><td class=\"s1\" dir=\"ltr\">23</td><td class=\"s1\" dir=\"ltr\">54</td><td class=\"s1\" dir=\"ltr\">1.64</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R2\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">3</div></th><td class=\"s0\" dir=\"ltr\">Rita</td><td class=\"s1\" dir=\"ltr\">14</td><td class=\"s1\" dir=\"ltr\">37</td><td class=\"s1\" dir=\"ltr\">1.54</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R3\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">4</div></th><td class=\"s0\" dir=\"ltr\">Heber</td><td class=\"s1\" dir=\"ltr\">34</td><td class=\"s1\" dir=\"ltr\">72</td><td class=\"s1\" dir=\"ltr\">1.72</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R4\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">5</div></th><td class=\"s0\" dir=\"ltr\">Miryam</td><td class=\"s1\" dir=\"ltr\">20</td><td class=\"s1\" dir=\"ltr\">62</td><td class=\"s1\" dir=\"ltr\">1.75</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R5\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">6</div></th><td class=\"s0\" dir=\"ltr\">Luis</td><td class=\"s1\" dir=\"ltr\">12</td><td class=\"s1\" dir=\"ltr\">42.1</td><td class=\"s1\" dir=\"ltr\">54</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R6\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">7</div></th><td class=\"s0\" dir=\"ltr\">Mar</td><td class=\"s1\" dir=\"ltr\">21</td><td class=\"s1\" dir=\"ltr\">40</td><td class=\"s1\" dir=\"ltr\">1.52</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R7\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">8</div></th><td class=\"s0\" dir=\"ltr\">Alan</td><td class=\"s1\" dir=\"ltr\">10</td><td class=\"s1\" dir=\"ltr\">36</td><td class=\"s1\" dir=\"ltr\">1.51</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R8\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">9</div></th><td class=\"s0\" dir=\"ltr\">Dalia</td><td class=\"s1\" dir=\"ltr\">8</td><td class=\"s1\" dir=\"ltr\">32</td><td class=\"s1\" dir=\"ltr\">1.43</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R9\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">10</div></th><td class=\"s0\" dir=\"ltr\">Alberto</td><td class=\"s1\" dir=\"ltr\">21</td><td class=\"s1\" dir=\"ltr\">62</td><td class=\"s1\" dir=\"ltr\">1.73</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R10\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">11</div></th><td class=\"s0\" dir=\"ltr\">Juan</td><td class=\"s1\" dir=\"ltr\">71</td><td class=\"s1\" dir=\"ltr\">52</td><td class=\"s1\" dir=\"ltr\">1.77</td></tr>"innerText: "1NombreEdadPesoKgEstaturaMts2Julia23541.643Rita14371.544Heber34721.725Miryam20621.756Luis1242.1547Mar21401.528Alan10361.519Dalia8321.4310Alberto21621.7311Juan71521.77"inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: trlastElementChild: trlocalName: "tbody"namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: nullnextSibling: nullnodeName: "TBODY"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 0offsetLeft: 0offsetParent: nulloffsetTop: 0offsetWidth: 0onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforepaste: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncontextmenu: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonsearch: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullouterHTML: "<tbody><tr style=\"height: 20px\"><th id=\"1557100607R0\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">1</div></th><td class=\"s0\" dir=\"ltr\">Nombre</td><td class=\"s0\" dir=\"ltr\">Edad</td><td class=\"s0\" dir=\"ltr\">PesoKg</td><td class=\"s0\" dir=\"ltr\">EstaturaMts</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R1\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">2</div></th><td class=\"s0\" dir=\"ltr\">Julia</td><td class=\"s1\" dir=\"ltr\">23</td><td class=\"s1\" dir=\"ltr\">54</td><td class=\"s1\" dir=\"ltr\">1.64</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R2\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">3</div></th><td class=\"s0\" dir=\"ltr\">Rita</td><td class=\"s1\" dir=\"ltr\">14</td><td class=\"s1\" dir=\"ltr\">37</td><td class=\"s1\" dir=\"ltr\">1.54</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R3\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">4</div></th><td class=\"s0\" dir=\"ltr\">Heber</td><td class=\"s1\" dir=\"ltr\">34</td><td class=\"s1\" dir=\"ltr\">72</td><td class=\"s1\" dir=\"ltr\">1.72</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R4\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">5</div></th><td class=\"s0\" dir=\"ltr\">Miryam</td><td class=\"s1\" dir=\"ltr\">20</td><td class=\"s1\" dir=\"ltr\">62</td><td class=\"s1\" dir=\"ltr\">1.75</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R5\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">6</div></th><td class=\"s0\" dir=\"ltr\">Luis</td><td class=\"s1\" dir=\"ltr\">12</td><td class=\"s1\" dir=\"ltr\">42.1</td><td class=\"s1\" dir=\"ltr\">54</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R6\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">7</div></th><td class=\"s0\" dir=\"ltr\">Mar</td><td class=\"s1\" dir=\"ltr\">21</td><td class=\"s1\" dir=\"ltr\">40</td><td class=\"s1\" dir=\"ltr\">1.52</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R7\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">8</div></th><td class=\"s0\" dir=\"ltr\">Alan</td><td class=\"s1\" dir=\"ltr\">10</td><td class=\"s1\" dir=\"ltr\">36</td><td class=\"s1\" dir=\"ltr\">1.51</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R8\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">9</div></th><td class=\"s0\" dir=\"ltr\">Dalia</td><td class=\"s1\" dir=\"ltr\">8</td><td class=\"s1\" dir=\"ltr\">32</td><td class=\"s1\" dir=\"ltr\">1.43</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R9\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">10</div></th><td class=\"s0\" dir=\"ltr\">Alberto</td><td class=\"s1\" dir=\"ltr\">21</td><td class=\"s1\" dir=\"ltr\">62</td><td class=\"s1\" dir=\"ltr\">1.73</td></tr><tr style=\"height: 20px\"><th id=\"1557100607R10\" style=\"height: 20px;\" class=\"row-headers-background row-header-shim\"><div class=\"row-header-wrapper\" style=\"line-height: 20px\">11</div></th><td class=\"s0\" dir=\"ltr\">Juan</td><td class=\"s1\" dir=\"ltr\">71</td><td class=\"s1\" dir=\"ltr\">52</td><td class=\"s1\" dir=\"ltr\">1.77</td></tr></tbody>"outerText: "1NombreEdadPesoKgEstaturaMts2Julia23541.643Rita14371.544Heber34721.725Miryam20621.756Luis1242.1547Mar21401.528Alan10361.519Dalia8321.4310Alberto21621.7311Juan71521.77"ownerDocument: documentparentElement: table.waffleparentNode: table.wafflepart: DOMTokenList [value: '']prefix: nullpreviousElementSibling: theadpreviousSibling: theadrows: HTMLCollection(11) [tr, tr, tr, tr, tr, tr, tr, tr, tr, tr, tr]scrollHeight: 0scrollLeft: 0scrollTop: 0scrollWidth: 0shadowRoot: nullslot: ""spellcheck: truestyle: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}tabIndex: -1tagName: "TBODY"textContent: "1NombreEdadPesoKgEstaturaMts2Julia23541.643Rita14371.544Heber34721.725Miryam20621.756Luis1242.1547Mar21401.528Alan10361.519Dalia8321.4310Alberto21621.7311Juan71521.77"title: ""translate: truevAlign: ""virtualKeyboardPolicy: ""[[Prototype]]: HTMLTableSectionElement(...)length: 1[[Prototype]]: HTMLCollectionitem: ƒ item()length: (...)namedItem: ƒ namedItem()constructor: ƒ HTMLCollection()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "HTMLCollection"get length: ƒ length()[[Prototype]]: Object
+cuerpoTabla=r.getElementsByTagName('tbody')[0]
+<tbody>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​<tr style=​"height:​ 20px">​…​</tr>​</tbody>​
+filas=cuerpoTabla.getElementsByTagName('tr')
+HTMLCollection(11) [tr, tr, tr, tr, tr, tr, tr, tr, tr, tr, tr]
+filas[0]
+<tr style=​"height:​ 20px">​<th id=​"1557100607R0" style=​"height:​ 20px;​" class=​"row-headers-background row-header-shim">​…​</th>​<td class=​"s0" dir=​"ltr">​Nombre​</td>​<td class=​"s0" dir=​"ltr">​Edad​</td>​<td class=​"s0" dir=​"ltr">​PesoKg​</td>​<td class=​"s0" dir=​"ltr">​EstaturaMts​</td>​</tr>​
+celda=filas[0].getElementsByTagName('td')
+HTMLCollection(4) [td.s0, td.s0, td.s0, td.s0]0: td.s01: td.s02: td.s03: td.s0length: 4[[Prototype]]: HTMLCollection
+celda[0]
+<td class=​"s0" dir=​"ltr">​Nombre​</td>​
+celda[0].innerText
+'Nombre'
+*/ 
+
+    function matrizEnbAseaDatos(codigoHtml){
+    var cuerpoTabla=codigoHtml.getElementsByTagName('tbody');
+    var filas=cuerpoTabla[0].getElementsByTagName('tr');
+    var total=filas.length; 
+    var i=0,celdaS='',matriz=[],lineaInterna=[];
+    var nombre='',edad=0,pesoKg=0,estaturaMts=0;
+    for(i=0;i<total;i++){
+    lineaInterna=[];//Vaciar vector
+    celdaS=filas[i].getElementsByTagName('td');
+    nombre=celdaS[0].innerText;
+    edad=celdaS[1].innerText;
+    pesoKg=celdaS[2].innerText;
+    estaturaMts=celdaS[3].innerText;
+    lineaInterna.push(nombre);
+    lineaInterna.push(edad);
+    lineaInterna.push(pesoKg);
+    lineaInterna.push(estaturaMts);
+    matriz.push(lineaInterna);
+
+    }
+     return matriz;
+    }
+
+//----
+function generaTabla(laMatriz){
+    var totalFilas=laMatriz.length;
+    var totalColumnas=laMatriz[0].length;
+    var fila=0,columna=0,codigoHtml='';
+    codigoHtml='<table border=1>';
+    for(fila=0;fila<totalFilas;fila++){
+        codigoHtml=codigoHtml+'<tr>';
+    for(columna=0;columna<totalColumnas;columna++){
+    codigoHtml=codigoHtml+'<td>'+laMatriz[fila][columna]+'</td>';
+    }
+    codigoHtml=codigoHtml+'</tr>';
+    }
+    codigoHtml=codigoHtml+'</table>';
+    return codigoHtml;
+}
+//-----
+</script>
+
+
+
+    <script>
+        function consumoApi(pais){
+            var nombreComun="";
+ $.get('https://restcountries.com/v3.1/name/'+pais, 
+ function (respuesta){
+console.log(respuesta);
+nombreComun = respuesta[0]["name"]["common"];
+console.log("nombre comun "+nombreComun);
+ });
+        }
+        //------
+
+        function consumoApi2(pais){
+            
+ $.get('https://api.covid19api.com/total/country/'+pais, 
+ function (respuesta){
+     var fecha ="";
+console.log(respuesta);
+fecha = respuesta[0]["Date"];
+console.log("la fecha es "+fecha);
+ });
+        }
+
+var codigo=consumoHojaExcel();
+var matrix=matrizEnbAseaDatos(codigo);
+var htmltabla=generaTabla(matrix);
+document.body.innerHTML=htmltabla;
+
+
+
+        /*
+        codigo=consumoHojaExcel()
+#document
+matrix=matrizEnbAseaDatos(codigo)
+(11) [Array(4), Array(4), Array(4), Array(4), Array(4), Array(4), Array(4), Array(4), Array(4), Array(4), Array(4)]
+htmltabla=generaTabla(matrix)
+'<table border=1><tr><td>Nombre</td><td>Edad</td><td>PesoKg</td><td>EstaturaMts</td></tr><tr><td>Julia</td><td>23</td><td>54</td><td>1.64</td></tr><tr><td>Rita</td><td>14</td><td>37</td><td>1.54</td></tr><tr><td>Heber</td><td>34</td><td>72</td><td>1.72</td></tr><tr><td>Miryam</td><td>20</td><td>62</td><td>1.75</td></tr><tr><td>Luis</td><td>12</td><td>42.1</td><td>54</td></tr><tr><td>Mar</td><td>21</td><td>40</td><td>1.52</td></tr><tr><td>Alan</td><td>10</td><td>36</td><td>1.51</td></tr><tr><td>Dalia</td><td>8</td><td>32</td><td>1.43</td></tr><tr><td>Alberto</td><td>21</td><td>62</td><td>1.73</td></tr><tr><td>Juan</td><td>71</td><td>52</td><td>1.77</td></tr></table>'
+*/
+
+    </script>
+</body>
+</html>
