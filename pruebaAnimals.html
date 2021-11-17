@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Animals</title>
+    <script src="./js/jquery.js"></script>
+<script src="./js/jquery.min.js"></script>
+</head>
+<body>
+
+    <h3 id="TextReplace">Texto</h3>
+<br>
+    <select name="lista1Nombre" id="lista1">
+<option value="ValorSoda">Soda</option>
+<option value="ValorPizza">Pizza</option>
+<option value="ValorHamburguesa">Hamburguesa</option>
+
+    </select>
+    <!--***********-->
+    <br><br><br>
+
+    <select name="lista2Nombre" id="lista2">
+        <option class="L2" value="ValorSoda">Soda</option>
+        <option class="L2" value="ValorPizza">Pizza</option>
+        <option class="L2" value="ValorHamburguesa">Hamburguesa</option>
+        
+            </select>
+
+            
+            
+           
+    <script>
+window.onload=function (){
+//-----------
+$('body').on('change','#lista2',function(){
+var indiceElegido=$('#lista2').prop('selectedIndex');
+var opciones=document.getElementsByClassName('L2');
+var opciones2=$('.L2');
+var opcionElegida=opciones[indiceElegido].innerText;
+var opE2=opciones2.eq(indiceElegido).text();
+console.log('indice elegido '+indiceElegido);
+console.log('producto: '+opcionElegida);
+console.log('producto2: '+opE2);
+});
+
+//--------
+
+var lista=document.getElementsByName('lista1Nombre')[0];
+lista.addEventListener('change', function(){
+var numeroElementoElegido=lista.selectedIndex;
+var nombreProducto='';
+var opciones= document.getElementsByTagName('option');
+nombreProducto=opciones[numeroElementoElegido].innerText;
+console.log('indice elegido '+numeroElementoElegido);
+console.log('producto elegido ' + nombreProducto);
+});
+
+
+
+
+    //----------------
+    var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+var requestOptions = {
+    method: "get",
+    headers: myHeaders,
+    redirect: "follow",
+    
+};
+
+var NFTsLeft;
+
+fetch("https://v1.nocodeapi.com/animals/google_sheets/FMFIthDJOiNwibRz?tabId=SOLD&api_key=imQTAsCQATasTsiwE&row_id=2", requestOptions)
+    .then(response => response.json())
+	.then(data => NFTsLeft = data)
+    .then(result =>{ console.log(NFTsLeft);
+    document.getElementById('TextReplace').innerText=NFTsLeft['Text'];
+    if (NFTsLeft['Text']=='There are 1953 Party Animals available to mint'){
+// document.location.href='https://google.es';
+    } //llave cierre if
+
+})
+    .catch(error => console.log('error', error));	
+}
+
+function definicion(concepto){
+    concepto = concepto.toLowerCase() //Convertir texto a minuscula
+    if(concepto=='perrito'){
+        alert('mejor amigo del hombre');
+    }else if(concepto=='bit'){
+        alert('toma valores 1 o 0, unidad mínima de información');
+    }else if(concepto=='byte'){
+        alert('8 bits');
+    }else{
+        alert('concepto no hallado');
+    }
+    }
+
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
